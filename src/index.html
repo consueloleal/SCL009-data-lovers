@@ -11,35 +11,55 @@
       <div id="wikiKanto">
         <img src="./img/prueba.png">
       </div>
-      <div>
-        <select id="selectType" name="selectATypeAPokemon" >
-          <option disabled selected>Selecciona una opción</option>
-          <option value="Electric">Electrico</option>
-          <option value="Fire">Fuego</option>
-          <option value="Water">Agua</option>
-          <option value="Poison">Venenoso</option>
-          <option value="Grass">Hierba</option>
-          <option value="Flying">Vuelo</option>
-          <option value="Bug">Insecto</option>
-          <option value="Normal">Normal</option>
-          <option value="Ground">Tierra</option>
-        </select>
-      </div>
+      <ul class="nav" id="navSelec">
+        <li class="nav-item">
+          <div>
+            <select id="selectType" name="selectATypeAPokemon">
+              <option disabled selected>Selecciona un tipo</option>
+              <option value="Electric">Electrico</option>
+              <option value="Fire">Fuego</option>
+              <option value="Water">Agua</option>
+              <option value="Poison">Venenoso</option>
+              <option value="Grass">Hierba</option>
+              <option value="Flying">Vuelo</option>
+              <option value="Bug">Insecto</option>
+              <option value="Normal">Normal</option>
+              <option value="Ground">Tierra</option>
+            </select>
+           </div>
+        </li>
+        <li class="nav-item">
+          <div>
+             <select id="selectWeaknesses" name="selectAWeaknessesAPokemon" >
+              <option disabled selected>Selecciona una bebilidad</option>
+              <option value="Electric">Electrico</option>
+              <option value="Fire">Fuego</option>
+              <option value="Water">Agua</option>
+              <option value="Poison">Venenoso</option>
+              <option value="Grass">Hierba</option>
+              <option value="Flying">Vuelo</option>
+              <option value="Bug">Insecto</option>
+              <option value="Normal">Normal</option>
+              <option value="Ground">Tierra</option>
+            </select>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
       </br>
-      <div class="headerTable row">
-        <div class="col-1">NÚMERO</div>
-        <div class="col-2 pokemonImage">POKÉMON</div>
-        <div class="col-2">NOMBRE</div>
-        <div class="col-2">TIPOS</div>
-        <div class="col-3">DEBILIDADES</div>
-        <div class="col-1">ALTURA</div>
-        <div class="col-1">PESO</div>
-        <div class="w-100"></div>
-      </div>
-      <div id="root" class="row">
-      </div>
+      <div id="select" class="row"></div>
+      <br>
+      <div id="stats" class="row"></div>
+      </br>
+      <div id="root" class="row"></div>
+      </br>
+      <footer> WikiKanto 2019 - Todos los derechos reservados</footer>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

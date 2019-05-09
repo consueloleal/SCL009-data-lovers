@@ -1,24 +1,54 @@
 /* Manejo del DOM */
 const rootNode   = document.getElementById('root');
+const rootStatNode = document.getElementById('stats');
+const rootSelect = document.getElementById('select');
 const selectType = document.getElementById('selectType');
-
+const selectWeaknesses = document.getElementById('selectWeaknesses');
+const vamosAVer = document.getElementById('funciona');
+var pokemonStats, filteredTypeData, filteredWeakData;
 document.addEventListener("DOMContentLoaded", load, false);
 
 function load(){
   loadPokemon(ourData);
+  pokemonStats = window.computeStats(ourData);
+  loadStats(pokemonStats);
   selectType.onchange = function(e) {
     e.preventDefault();
-    filteredData = window.filterData(ourData, {type: selectType.value});
-    removePokemon();
-    loadPokemon(filteredData);
-  } 
+    filteredTypeData = window.filterData(ourData, {type: selectType.value});
+    removeAll();
+    loadPokemon(filteredTypeData);
+    pokemonStats = window.computeStats(filteredTypeData);
+    loadStats(pokemonStats);
+  }
+  selectWeaknesses.onchange = function(e){
+    e.preventDefault();
+    filteredWeakData = window.filterData(ourData, {weaknesses: selectWeaknesses.value});
+    removeAll();
+    loadPokemon(filteredWeakData);
+    pokemonStats = window.computeStats(filteredWeakData);
+    loadStats(pokemonStats);
+  }
 }
 
-function removePokemon(){
+function removeAll(){
   while (rootNode.firstChild) {
     rootNode.removeChild(rootNode.firstChild);
   }
+  while (rootStatNode.firstChild) {
+    rootStatNode.removeChild(rootStatNode.firstChild);
+  }
+}
+
+function loadStats(stats){
+  for (var key in stats){
+    const statNode = document.createElement("div");
+    statNode.className = "statNode col-sm-3";
+    statNode.innerHTML = key + ": " + stats[key];
+    rootStatNode.appendChild(statNode);
+  }
 };
+
+
 
 function loadPokemon(data){
   data.forEach(function(pokemon) {
@@ -26,22 +56,24 @@ function loadPokemon(data){
     const w100        = document.createElement("div");
 
     pokemonNode.id = pokemon.name;
-    pokemonNode.className = "pokemonNode row col";
+    pokemonNode.className = "pokemonNode col-sm-3";
     pokemon.type.forEach(function(pokemonType){
       pokemonNode.className += " " + pokemonType;
     });
-    pokemonNode.innerHTML = '<div class="col-1 pokemonNumer">' + pokemon.num +  '</div>' +
-                            '<div class="col-2 pokemonImage"><img src="' + pokemon.img + '"></img></div>' +
-                            '<div class="col-2 pokemonName">' + pokemon.name + '</div>' + 
-                            '<div class="col-2 pokemonType">' + pokemon.type + '</div>' +
-                            '<div class="col-3 pokemonWeak">' + pokemon.weaknesses + '</div>' +
-                            '<div class="col-1 pokemonHeight">' + pokemon.height + '</div>' +
-                            '<div class="col-1 pokemonWeight">' + pokemon.weight + '</div>';
+    pokemonNode.innerHTML =  '<div class="card" style="width: 15rem;">'+
+                                '<img id="image"src="'  + pokemon.img + '"></img>'+
+                                '<div class="card-body">'+
+                                  '<h5 class="card-title">'+ pokemon.name + '</h5>' +
+                                  '<p class="card-text">' + pokemon.type + '</p>' + 
+                                  '<button type="button" class="btn btn-primary" id="funciona">'+ "¡Yo te elijo!" + '</button>' +                            
+                                '</div>'
+                              '</div>';
+
+
                             
     rootNode.appendChild(pokemonNode);
 
-    w100.className = "w-100"
-    rootNode.appendChild(w100);
+    w100.className = "w-100";
   });
 }
 

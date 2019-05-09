@@ -1,6 +1,13 @@
 body{
-  background-image: url(https://cdn.bulbagarden.net/media/upload/thumb/2/2f/Unova_Route_3_anime.png/800px-Unova_Route_3_anime.png);
+  background-color:#F73939;
+  background-size: cover;
   align-content: center;
+  margin-bottom: 20px;
+}
+
+footer{
+  color: white;
+  text-align: center;
 }
 
 #wikiKanto{
@@ -10,19 +17,36 @@ body{
   margin-left: 15%;
 } 
 
+#navSelect{
+  border-top: 78px;
+  border-color: blue;
+}
+
+select{
+  width: 220px;
+  height: 40px;
+}
+
 .headerTable{
   color: #ffcd00;
   background-image: url(https://elevatetechfest.com/wp-content/uploads/2018/04/iStock-596348958-blue-purple-galaxy-web-res.jpg);
 }
-
 .pokemonNode{
   background-color: white;
+  align-content: center;
+}
+.pokemonImage{
+  text-align: center;
 }
 
 ul{
   /*background-color: #EDED06;*/
 }
 
-.pokemonImage{
+.card{
+  background-color: white;
   text-align: center;
+  margin-top: 15px; 
+
+
 }
